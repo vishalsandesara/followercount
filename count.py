@@ -36,15 +36,16 @@ for page in tweepy.Cursor(api.followers_ids,
 b = open(COUNT_FILE, 'r')
 oldcount = int(b.readline())
 b.close()
+
+something = 'currently there are {0} of followers'.format(newcount)
+say(something)
+
 if newcount > oldcount:
     a = open(COUNT_FILE, 'w')
     a.write('{0}'.format(newcount))
     diff = newcount - oldcount
     follower = 'follower'
 
-    something = 'currently there are {0} of followers'.format(newcount)
-    say(something)
-    
     if diff > 1:
         follower += 's'
 
